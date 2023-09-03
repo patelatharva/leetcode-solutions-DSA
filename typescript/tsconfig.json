@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "target": "esnext", // You can also set this to "es2015"
+    "module": "commonjs",
+    "lib": ["esnext", "dom"]
+    // Other compiler options...
+  }
+  // Other configuration settings...
+}
