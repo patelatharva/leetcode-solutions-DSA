@@ -5,44 +5,19 @@ function fourSumCount(
   nums4: number[],
 ): number {
   let numberOfTuples = 0;
-  const memoizedSums: Map<string, number> = new Map<string, number>();
+  const sumsFromNums1and2 = new Map<number, number>();
 
   for (let index1 = 0; index1 < nums1.length; index1++) {
     for (let index2 = 0; index2 < nums2.length; index2++) {
-      for (let index3 = 0; index3 < nums3.length; index3++) {
-        for (let index4 = 0; index4 < nums4.length; index4++) {
-          if (
-            nums1[index1] == 0 &&
-            nums2[index2] == 0 &&
-            nums3[index3] == 0 &&
-            nums4[index4] == 0
-          ) {
-            numberOfTuples += 1;
-          } else {
-            const sortedNumbers = [
-              nums1[index1],
-              nums2[index2],
-              nums3[index3],
-              nums4[index4],
-            ].sort();
-            const key = sortedNumbers.join(" ");
+      const sum = nums1[index1] + nums2[index2];
+      sumsFromNums1and2.set(sum, (sumsFromNums1and2.get(sum) || 0) + 1);
+    }
+  }
 
-            let sumOfElements: number;
-            const memoizedSum: number | undefined = memoizedSums.get(key);
-            if (memoizedSum !== undefined) {
-              sumOfElements = memoizedSum;
-            } else {
-              sumOfElements =
-                nums1[index1] + nums2[index2] + nums3[index3] + nums4[index4];
-              memoizedSums.set(key, sumOfElements);
-            }
-
-            if (sumOfElements == 0) {
-              numberOfTuples += 1;
-            }
-          }
-        }
-      }
+  for (let index3 = 0; index3 < nums3.length; index3++) {
+    for (let index4 = 0; index4 < nums4.length; index4++) {
+      const sum = -nums3[index3] - nums4[index4];
+      numberOfTuples += sumsFromNums1and2.get(sum) || 0;
     }
   }
   return numberOfTuples;
