@@ -72,8 +72,8 @@ function findClosestElements(arr: number[], k: number, x: number): number[] {
         }
 
         if (
-            totalDistanceAtShiftMinus1 < totalDistanceAtShift0 &&
-            totalDistanceAtShiftMinus1 < totalDistanceAtShiftPlus1
+            totalDistanceAtShiftMinus1 <= totalDistanceAtShift0 &&
+            totalDistanceAtShiftMinus1 <= totalDistanceAtShiftPlus1
         ) {
             directionToShift = -1;
         } else if (
