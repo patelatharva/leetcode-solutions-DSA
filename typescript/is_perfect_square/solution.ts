@@ -1,4 +1,4 @@
-function mySqrt(x: number): boolean {
+function isPerfectSquare(x: number): boolean {
     let left = 1;
     let right = Math.floor(x / 2);
     if (x == 0 || x == 1) {
@@ -16,10 +16,6 @@ function mySqrt(x: number): boolean {
             right = mid - 1;
         }
     }
-}
-
-function isPerfectSquare(num: number): boolean {
-    return mySqrt(num);
 }
 
 console.log(isPerfectSquare(1));
