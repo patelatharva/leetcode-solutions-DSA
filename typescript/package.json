@@ -1,15 +1,22 @@
 {
   "scripts": {
-    "prepare": "cd .. && husky install typescript/.husky"
+    "prepare": "cd .. && husky install typescript/.husky",
+    "test": "jest",
+    "test:Calculator": "jest tests/Calculator",
+    "test:AdvancedCalculator": "jest tests/AdvancedCalculator"
   },
   "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.12.12",
     "@typescript-eslint/eslint-plugin": "^6.4.1",
     "@typescript-eslint/parser": "^6.4.1",
     "eslint": "^8.48.0",
     "eslint-config-prettier": "^9.0.0",
     "husky": "^8.0.3",
+    "jest": "^29.7.0",
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.2",
+    "ts-jest": "^29.1.2",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   },
